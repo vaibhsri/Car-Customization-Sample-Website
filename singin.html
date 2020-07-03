@@ -8,6 +8,7 @@
   
 </head>
 <body>
+    <nav><div><a href="index.html"><h1><em><b><< V3</b></em></h1></a></div><div><h1>Log In / Register</h1></div></nav>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
  
@@ -39,6 +40,14 @@
             min-height:20px;
             min-width: 100px;
         }
+        nav{
+            position: fixed;
+            top:2vh;
+            width:90vw;
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+        }
     </style>
     <div id="container">
         <h1>Login</h1>
@@ -48,10 +57,10 @@
     </div>
     <div id="container2">
         <h1>Register</h1>
-        <input type="text" placeholder="Choose Username">
+        <input type="text" placeholder="Choose Username" id="regname">
         <input type="text" name="" id="" placeholder="Enter E-Mail ID">
         <input type="password" placeholder="Choose Password">
-        <input type="submit">
+        <button class="button" onclick="register()">Register</button>
     </div>
     <script>
         var loggedin = localStorage.getItem('name');
@@ -68,6 +77,13 @@
         }
         function logout(){
             localStorage.setItem('name','');
+            location.reload();
+        }
+        function register(){
+            var name = document.getElementById('regname').value;
+            localStorage.setItem('name',name);
+            var test = localStorage.getItem('name');
+            console.log(test);
             location.reload();
         }
     </script>

@@ -53,5 +53,10 @@
     <div id="one">  <a href="customcar.html"> Customize your car </a></div>
     <div id="two"> <a href="custombike.html"> Customize your bike </a> </div>
       </div>
+      <script>
+          if (localStorage.getItem('name')==''){
+              location.href="singin.html";
+          }
+      </script>
   </body>
 </html>
