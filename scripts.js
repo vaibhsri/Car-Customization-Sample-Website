@@ -1,30 +1,12 @@
 
+function load(){
+    var signin = document.getElementById('signin');
 
-window.onload = function() {
-            lax.setup() // init
-            
-            document.addEventListener('scroll', function(e) {
-            lax.update(window.scrollY) // update every scroll
-            }, false)
-        }
+    var name = localStorage.getItem('name');
 
-window.addEventListener("resize", function() {
-	lax.updateElements()
-});
-
-window.onscroll = function() {myFunction()};
-
-// Get the navbar
-var navbar = document.getElementById("navbar ");
-
-// Get the offset position of the navbar
-var sticky = navbar.offsetTop;
-
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
+    if(name==''){
+        signin.innerHTML="sign in";
+    }else{
+        signin.innerHTML="Welcome, " + name ;
+}
 }

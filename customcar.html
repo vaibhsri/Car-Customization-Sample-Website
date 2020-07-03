@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <title></title>
+</head>
+<body>
+    <nav><div><a href="index.html"><h1><em>< V3</em></h1></a></div><div><h1>Customize Your Car</h1></div></nav>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        body{
+            font-family: 'Bebas neue';
+            display: flex;
+            background-color: black;
+            color:white;
+            align-items: center;
+            justify-content: space-evenly;
+            width:100vw;
+            height:100vh;
+            flex-direction: row;
+        }
+        .engine{
+            width:100px;
+            cursor:pointer;
+        }
+        #model, #color{
+            width:20vw;
+        }
+        a{
+            text-decoration: none;
+            color:rgba(214,2,2,0.9);
+        }
+        img{
+            max-width: 40vw;
+        }
+        #container2{
+            width:40vw;
+        }
+        #container2 img{
+            min-width:35vw;
+        }
+        #container div{
+            margin:20px;
+        }
+        nav{
+            position: fixed;
+            top:2vh;
+            width:90vw;
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+        }
+    </style>
+<div id="container">
+    <div id="carmodel">
+        <label for="carmodel">Select your Car Model</label>
+        <select name="model" id="model" onclick="cont2()">
+            <option value=null>Select</option>
+            <option value="1">Lamborghini</option>
+            <option value="2">Mercedes</option>
+            <option value="3">Pagani</option>
+            <option value="4">Ferrari</option>
+        </select>
+    </div>
+    <div id="engines">
+        <label for="enfines">Select your Engine</label>
+        <input type="radio"
+             name="engine" id="v8">
+             <label for="v8">
+          <img class="engine" src="https://pluspng.com/img-png/engine-png-engine-png-clipart-png-image-576.png" alt="">
+      </label>
+      <input type="radio"
+             name="engine" id="v12">
+             <label for="v12">
+          <img class="engine" src="https://www.pngmart.com/files/5/Engine-Transparent-Background.png" alt="">
+      </label>
+      <input type="radio"
+             name="engine" id="v6">
+             <label for="v6">
+          <img class="engine" src="https://lh3.googleusercontent.com/proxy/PbiSZMJ3EHYKJp4sG0CMFeNwQDE_llYIslzD19xk9nJsxfNfjJDy-tdoKTdrYTo36iyReMo2zh9lP2KJzvF0pEL4T5FSeDKomCvsaCP8gIrYgBw" alt="">
+      </label>
+      <input type="radio"
+             name="engine" id="ivtec">
+             <label for="ivtec">
+          <img class="engine" src="https://lh3.googleusercontent.com/proxy/AIayNTbAVk3KWNVQExmHznXEIcHzLJMbFDlWtTJNPvZryDcbURhU0kHDB6ehvSf64XP7u9xYdcykOnk8btkPfzdejAcxay4yJ1ZdAXt3rCd9Sc6W_GRpmIBw" alt="">
+      </label>
+  </div>
+  <div id="carcolor">
+      <label for="carcolor">Select Color Scheme</label>
+    <select name="color" id="color" onclick="color()">
+        <option value="1">Default</option>
+        <option value="2">Classy</option>
+        <option value="3">Boujee</option>
+        <option value="4">Flamboyant</option>
+    </select>
+  </div>
+  
+<div id="totalcost"><button onclick="totalcalc()">Place Order</button></div>
+</div>
+<div id="container2">
+
+</div>
+<script>
+    var colorcost=0;
+    var enginecost=0;
+    function cont2(){
+    var model = document.getElementById('model').value;
+    var cont2 = document.getElementById('container2');
+    switch (model){
+        case "1":
+            cont2.innerHTML="<img id=vehicle src=https://www.pngmart.com/files/10/Lamborghini-Huracan-PNG-Transparent-Picture.png>";
+            break;
+        case "2":
+        cont2.innerHTML="<img id=vehicle src=https://pngimg.com/uploads/mercedes/mercedes_PNG80147.png>";
+            break;
+        case "3":
+        cont2.innerHTML="<img id=vehicle src=https://www.transparentpng.com/thumb/pagani/6rrfWe-pagani-wonderful-picture-images.png>";
+            break;
+        case "4":
+        cont2.innerHTML="<img id=vehicle src=https://pngimg.com/uploads/ferrari/ferrari_PNG10640.png>";
+            break;
+    }
+}
+function color(){
+    var color = document.getElementById('color').value;
+    var image = document.getElementById('vehicle');
+    console.log(color);
+    switch (color){
+        case "1":
+            image.style.filter="hue-rotate(0deg)"
+            colorcost=20000;
+            break;
+        case "2":
+            image.style.filter="hue-rotate(45deg)"
+            colorcost=35000;
+            break;
+        case "3":
+            image.style.filter="hue-rotate(90deg)"
+            colorcost=40000;
+            break;
+        case "4":
+            image.style.filter="hue-rotate(200deg)"
+            colorcost=50000;    
+            break;
+    }
+}
+var total = document.getElementById('totalcost');
+function totalcalc(){   
+    var totalval=colorcost + enginecost;
+    total.innerHTML="Your Total Cost: Rs "+totalval;
+}
+</script>
+</body>
+</html>
