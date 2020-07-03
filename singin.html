@@ -64,7 +64,7 @@
     </div>
     <script>
         var loggedin = localStorage.getItem('name');
-        if (loggedin != '' || loggedin != null || loggedin != "null" || loggedin != undefined){
+        if (loggedin != '' && loggedin != null && loggedin != "null" && loggedin != undefined){
             var cont = document.getElementById('container');
             cont.innerHTML="<Button onclick=logout()>Log Out</Button>"
         }
