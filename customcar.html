@@ -65,7 +65,7 @@
         </select>
     </div>
     <div id="engines">
-        <label for="enfines">Select your Engine</label>
+        <label for="engines">Select your Engine</label>
         <input type="radio"
              name="engine" id="v8">
              <label for="v8">
@@ -96,6 +96,29 @@
         <option value="4">Flamboyant</option>
     </select>
   </div>
+  <div id="interior">
+    <label for="interior">Select Interior</label>
+    <input type="radio"
+         name="inter" id="int1">
+         <label for="int1">
+      <img class="engine" src="https://www.popsci.com/resizer/QBhz4zcOyLQoigv5hO5IoBN6ecE=/760x506/arc-anglerfish-arc2-prod-bonnier.s3.amazonaws.com/public/EWXSQEYKCHXMME5RZD4X4IQLJM.jpg" alt="">
+  </label>
+  <input type="radio"
+         name="inter" id="int2">
+         <label for="int2">
+      <img class="engine" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkAVyWfprLQzEsJGBvPlL32fljw-mpqoJPEw&usqp=CAU" alt="">
+  </label>
+  <input type="radio"
+         name="inter" id="int3">
+         <label for="int3">
+      <img class="engine" src="https://news.hyundaimotorgroup.com/upload/image/mp210/mp210-39737-235423.jpg" alt="">
+  </label>
+  <input type="radio"
+         name="inter" id="int4">
+         <label for="int4">
+      <img class="engine" src="https://the-drive.imgix.net/https%3A%2F%2Fapi.thedrive.com%2Fwp-content%2Fuploads%2F2017%2F08%2Ftesla-model-3-dashboard.jpg%3Fquality%3D85?w=1440&auto=compress%2Cformat&ixlib=js-1.4.1&s=4e5634690ee6fca446dc6d687ea1eb28" alt="">
+  </label>
+</div>
   
 <div id="totalcost"><button onclick="totalcalc()">Place Order</button></div>
 </div>
@@ -105,6 +128,7 @@
 <script>
     var colorcost=0;
     var enginecost=0;
+    var intcost=0;
     function cont2(){
     var model = document.getElementById('model').value;
     var cont2 = document.getElementById('container2');
@@ -148,8 +172,38 @@ function color(){
 }
 var total = document.getElementById('totalcost');
 function totalcalc(){   
-    var totalval=colorcost + enginecost;
-    total.innerHTML="Your Total Cost: Rs "+totalval;
+    if (document.getElementById('v8').checked) {
+        enginecost=10000;
+      }
+      if (document.getElementById('v12').checked) {
+        enginecost=15000;
+      }
+      if (document.getElementById('v6').checked) {
+        enginecost=20000;
+      }
+      if (document.getElementById('ivtec').checked) {
+        enginecost=30000;
+      }
+      if (document.getElementById('int1').checked) {
+        intcost=10000;
+      }
+      if (document.getElementById('int2').checked) {
+        intcost=15000;
+      }
+      if (document.getElementById('int3').checked) {
+        intcost=20000;
+      }
+      if (document.getElementById('int4').checked) {
+        intcost=30000;
+      }
+    var totalval=colorcost + enginecost + intcost;
+    total.innerHTML="Your Total Cost: ₹"+totalval + "<br> Engine Cost : ₹" + enginecost + "<br> Color Scheme Cost : ₹" + colorcost + "<br> Interior Cost : ₹" + intcost + "<br><Button onclick=checkout()>Checkout</Button>";
+}
+function checkout(){
+    var totalval=colorcost + enginecost + intcost;
+    localStorage.setItem('total',totalval);
+    console.log('total val stored');
+    location.href="thanks.html";
 }
 </script>
 </body>

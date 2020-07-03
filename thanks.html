@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        body{
+            font-family: 'Bebas neue';
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        span{
+            color:red;
+        }
+    </style>
+    <h1 id="order">Your order was not placed</h1>
+    <script>
+        var cost = localStorage.getItem('total');
+        var name = localStorage.getItem('name');
+        var ord = document.getElementById("order");
+        ord.innerHTML="<h1>Thanks for shopping with us, "+name+"</h1><br><h2>Your total is <span>₹"+cost+"</span></h2><br>You will recieve an email from us regarding your order shortly!<br><a href=index.html>Go back home</a>"
+    </script>
+</body>
+</html>

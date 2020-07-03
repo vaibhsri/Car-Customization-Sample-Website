@@ -65,7 +65,7 @@
         </select>
     </div>
     <div id="engines">
-        <label for="enfines">Select your Engine</label>
+        <label for="engines">Select Engine</label>
         <input type="radio"
              name="engine" id="v8">
              <label for="v8">
@@ -148,8 +148,26 @@ function color(){
 }
 var total = document.getElementById('totalcost');
 function totalcalc(){   
+    if (document.getElementById('v8').checked) {
+        enginecost=10000;
+      }
+      if (document.getElementById('v12').checked) {
+        enginecost=15000;
+      }
+      if (document.getElementById('v6').checked) {
+        enginecost=20000;
+      }
+      if (document.getElementById('ivtec').checked) {
+        enginecost=30000;
+      }
     var totalval=colorcost + enginecost;
-    total.innerHTML="Your Total Cost: Rs "+totalval;
+    total.innerHTML="Your Total Cost: ₹"+totalval + "<br> Engine Cost : ₹" + enginecost + "<br> Color Scheme Cost : ₹" + colorcost + "<br><Button onclick=checkout()>Checkout</Button>";
+}
+function checkout(){
+    var totalval=colorcost + enginecost ;
+    localStorage.setItem('total',totalval);
+    console.log('total val stored');
+    location.href="thanks.html";
 }
 </script>
 </body>
