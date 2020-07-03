@@ -4,7 +4,7 @@ function load(){
 
     var name = localStorage.getItem('name');
 
-    if(name=='' || name == null || name == "null"){
+    if(name=='' || name == null || name == "null" || name == undefined){
         signin.innerHTML="sign in";
     }else{
         signin.innerHTML="Welcome, " + name ;
